@@ -1,0 +1,15 @@
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\bin\Debug\net6.0\Resturant.Management.System.Repository.deps.json
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\bin\Debug\net6.0\Resturant.Management.System.Repository.dll
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\bin\Debug\net6.0\Resturant.Management.System.Repository.pdb
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\bin\Debug\net6.0\Resturant.Management.System.Core.dll
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\bin\Debug\net6.0\Resturant.Management.System.Core.pdb
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.csproj.AssemblyReference.cache
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.GeneratedMSBuildEditorConfig.editorconfig
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.AssemblyInfoInputs.cache
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.AssemblyInfo.cs
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.csproj.CoreCompileInputs.cache
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.csproj.CopyComplete
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.dll
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\refint\Resturant.Management.System.Repository.dll
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\Resturant.Management.System.Repository.pdb
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Repository\obj\Debug\net6.0\ref\Resturant.Management.System.Repository.dll

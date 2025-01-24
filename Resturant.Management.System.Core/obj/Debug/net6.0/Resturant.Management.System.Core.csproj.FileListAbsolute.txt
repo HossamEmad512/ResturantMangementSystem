@@ -1,0 +1,12 @@
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\bin\Debug\net6.0\Resturant.Management.System.Core.deps.json
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\bin\Debug\net6.0\Resturant.Management.System.Core.dll
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\bin\Debug\net6.0\Resturant.Management.System.Core.pdb
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\Resturant.Management.System.Core.csproj.AssemblyReference.cache
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\Resturant.Management.System.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\Resturant.Management.System.Core.AssemblyInfoInputs.cache
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\Resturant.Management.System.Core.AssemblyInfo.cs
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\Resturant.Management.System.Core.csproj.CoreCompileInputs.cache
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\Resturant.Management.System.Core.dll
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\refint\Resturant.Management.System.Core.dll
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\Resturant.Management.System.Core.pdb
+F:\backend\.net course\course\Resturant.Management.System.Solution\Resturant.Management.System.Core\obj\Debug\net6.0\ref\Resturant.Management.System.Core.dll
