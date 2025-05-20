@@ -44,8 +44,22 @@ namespace Resturant.Management.System.APIs.Controllers
         [ProducesResponseType(typeof(MenueDto), StatusCodes.Status200OK)]
         public async Task<ActionResult<MenueDto>> CreateMenue(MenueDto menue)
         {
+            var Spec = new MenueSpecifications(menue.ResturantId);
+            var result = await _menueRepo.GetByIdWithSpecAsync(Spec);
             var Menue = _mapper.Map<MenueDto, Menue>(menue);
-            await _menueRepo.AddAsync(Menue);
+            if(result is null)
+            {
+                await _menueRepo.AddAsync(Menue);
+
+            }
+            else
+            {
+                foreach(var item in Menue.menueItems)
+                {
+                    result.menueItems.Add(item);
+                    _menueRepo.Update(result);
+                }
+            }
             return Ok(menue);
         }
 

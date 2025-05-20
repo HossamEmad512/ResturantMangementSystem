@@ -87,14 +87,8 @@ namespace Resturant.Management.System.APIs.Controllers
                 {
                     if(emp.Password == model.Password) 
                     {
-                        var Result = new OwnerDto()
-                        {
-                            DisplayName = emp.Name,
-                            Email = model.Email,
-                            Role = model.Role,
-                            Token = "sss"
-                        };
-                        return Ok(Result);
+                        
+                        return Ok(emp);
                     }
 
                 }

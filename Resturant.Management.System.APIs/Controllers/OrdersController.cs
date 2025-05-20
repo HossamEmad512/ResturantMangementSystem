@@ -13,14 +13,17 @@ namespace Resturant.Management.System.APIs.Controllers
     public class OrdersController : APIBaseController
     {
         private readonly IGenericRepository<Order> _orderRepo;
+        private readonly IGenericRepository<CurrentDishe> _currentDisheRepo;
+
         private readonly IMapper _mapper;
         private readonly IOrderRepository _repository;
 
-        public OrdersController(IGenericRepository<Order> orderRepo, IMapper mapper , IOrderRepository repository)
+        public OrdersController(IGenericRepository<Order> orderRepo, IMapper mapper , IOrderRepository repository, IGenericRepository<CurrentDishe> currentDisheRepo)
         {
             _orderRepo = orderRepo;
             _mapper = mapper;
             _repository = repository;
+            _currentDisheRepo = currentDisheRepo;
         }
 
 
@@ -49,9 +52,49 @@ namespace Resturant.Management.System.APIs.Controllers
         [ProducesResponseType(typeof(Order), StatusCodes.Status200OK)]
         public async Task<ActionResult<Order>> CreateOrder(OrderDto order)
         {
+
             var Order = _mapper.Map<OrderDto, Order>(order);
-            await _orderRepo.AddAsync(Order);
-            return Ok(Order);
+            var CurrentDishe = new CurrentDishe()
+            {
+                ResturantId=Order.ResturantId,
+                OrderItems=Order.OrderItems,
+                TableNumber=Order.TableNumber,
+                PhoneNumber=Order.PhoneNumber,
+                Status="In Progress"
+            };
+            await _currentDisheRepo.AddAsync(CurrentDishe); 
+            if(Order.TableNumber == 0)
+            {
+                await _orderRepo.AddAsync(Order);
+                return Ok(Order);
+
+            }
+            var Orders = await _repository.GetAllAsync(Order.ResturantId);
+            if (Orders is null)
+            {
+
+                await _orderRepo.AddAsync(Order);
+                return Ok(Order);
+
+            }
+            else
+            {
+                foreach(var item in Orders)
+                {
+                    if(item.TableNumber== Order.TableNumber)
+                    {
+                        foreach(var orderItem in Order.OrderItems)
+                        {
+                            item.OrderItems.Add(orderItem);
+                        }
+                        _orderRepo.Update(item);
+                        return Ok(Order);
+                    }
+                }
+                await _orderRepo.AddAsync(Order);
+                return Ok(Order);
+            }
+            
         }
 
         //Update Order
@@ -64,7 +107,7 @@ namespace Resturant.Management.System.APIs.Controllers
             return Ok(Order);
         }
 
-        //Delete Menue
+        //Delete Order
 
         [HttpDelete("delete/{OrderId}")]
         public async Task DeleteOrder(int OrderId)

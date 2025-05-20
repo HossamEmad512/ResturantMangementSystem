@@ -56,6 +56,9 @@ namespace Resturant.Management.System.Repository
 
         }
 
-
+        public async Task<T> GetById(int id)
+        {
+            return await _dbContext.Set<T>().Where(item=>item.Id == id).FirstOrDefaultAsync();
+        }
     }
 }

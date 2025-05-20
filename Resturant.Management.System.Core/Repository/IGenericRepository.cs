@@ -16,6 +16,6 @@ namespace Resturant.Management.System.Core.Repository
 
         Task<IEnumerable<T>> GetAllWithSpecAsync(ISpecifications<T> Spec );
         Task<T> GetByIdWithSpecAsync(ISpecifications<T> Spec);
-
+        Task<T> GetById(int id);
     }
 }

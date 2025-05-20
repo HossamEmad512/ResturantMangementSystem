@@ -22,6 +22,36 @@ namespace Resturant.Management.System.Repository.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Resturant.Management.System.Core.Entites.CurrentDishe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTimeOffset>("DateOfCreation")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ResturantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TableNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CurrentDishes");
+                });
+
             modelBuilder.Entity("Resturant.Management.System.Core.Entites.Employee", b =>
                 {
                     b.Property<string>("Email")
@@ -35,6 +65,10 @@ namespace Resturant.Management.System.Repository.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -107,15 +141,17 @@ namespace Resturant.Management.System.Repository.Data.Migrations
                     b.Property<DateTimeOffset>("DateOfCreation")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ResturantId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SalesId")
+                    b.Property<int>("TableNumber")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SalesId");
 
                     b.ToTable("Orders");
                 });
@@ -128,6 +164,9 @@ namespace Resturant.Management.System.Repository.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("CurrentDisheId")
+                        .HasColumnType("int");
+
                     b.Property<int>("ItemId")
                         .HasColumnType("int");
 
@@ -137,13 +176,61 @@ namespace Resturant.Management.System.Repository.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SalesOrdersId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CurrentDisheId");
 
                     b.HasIndex("ItemId");
 
                     b.HasIndex("OrderId");
 
+                    b.HasIndex("SalesOrdersId");
+
                     b.ToTable("OrderItem");
+                });
+
+            modelBuilder.Entity("Resturant.Management.System.Core.Entites.Recommendation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Cost")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrepMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Rating")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ResturantId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Recommendations");
                 });
 
             modelBuilder.Entity("Resturant.Management.System.Core.Entites.Resturants", b =>
@@ -196,6 +283,60 @@ namespace Resturant.Management.System.Repository.Data.Migrations
                     b.ToTable("Sales");
                 });
 
+            modelBuilder.Entity("Resturant.Management.System.Core.Entites.SalesOrders", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTimeOffset>("DateOfCreation")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<int>("ResturantId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SalesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TableNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SalesId");
+
+                    b.ToTable("SalesOrders");
+                });
+
+            modelBuilder.Entity("Resturant.Management.System.Core.Entites.WorkEmployee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ResturantId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("WorkEmployees");
+                });
+
             modelBuilder.Entity("Resturant.Management.System.Core.Entites.MenueItem", b =>
                 {
                     b.HasOne("Resturant.Management.System.Core.Entites.Menue", null)
@@ -203,15 +344,12 @@ namespace Resturant.Management.System.Repository.Data.Migrations
                         .HasForeignKey("MenueId");
                 });
 
-            modelBuilder.Entity("Resturant.Management.System.Core.Entites.Order", b =>
-                {
-                    b.HasOne("Resturant.Management.System.Core.Entites.Sales", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("SalesId");
-                });
-
             modelBuilder.Entity("Resturant.Management.System.Core.Entites.OrderItem", b =>
                 {
+                    b.HasOne("Resturant.Management.System.Core.Entites.CurrentDishe", null)
+                        .WithMany("OrderItems")
+                        .HasForeignKey("CurrentDisheId");
+
                     b.HasOne("Resturant.Management.System.Core.Entites.MenueItem", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId")
@@ -221,6 +359,10 @@ namespace Resturant.Management.System.Repository.Data.Migrations
                     b.HasOne("Resturant.Management.System.Core.Entites.Order", null)
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId");
+
+                    b.HasOne("Resturant.Management.System.Core.Entites.SalesOrders", null)
+                        .WithMany("OrderItems")
+                        .HasForeignKey("SalesOrdersId");
 
                     b.Navigation("Item");
                 });
@@ -240,6 +382,18 @@ namespace Resturant.Management.System.Repository.Data.Migrations
                     b.Navigation("Sales");
                 });
 
+            modelBuilder.Entity("Resturant.Management.System.Core.Entites.SalesOrders", b =>
+                {
+                    b.HasOne("Resturant.Management.System.Core.Entites.Sales", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("SalesId");
+                });
+
+            modelBuilder.Entity("Resturant.Management.System.Core.Entites.CurrentDishe", b =>
+                {
+                    b.Navigation("OrderItems");
+                });
+
             modelBuilder.Entity("Resturant.Management.System.Core.Entites.Menue", b =>
                 {
                     b.Navigation("menueItems");
@@ -253,6 +407,11 @@ namespace Resturant.Management.System.Repository.Data.Migrations
             modelBuilder.Entity("Resturant.Management.System.Core.Entites.Sales", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("Resturant.Management.System.Core.Entites.SalesOrders", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

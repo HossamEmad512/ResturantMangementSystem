@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -10,6 +11,9 @@ namespace Resturant.Management.System.Core.Entites
     public class Order : BaseEntity
     {
         public int ResturantId { get; set; }
+        public int TableNumber { get; set; }
+        [AllowNull]
+        public string PhoneNumber { get; set; }
         public DateTimeOffset DateOfCreation { get; set; } = DateTimeOffset.Now; 
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
         public decimal GetTotalPrice() 

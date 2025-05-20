@@ -28,7 +28,9 @@ namespace Resturant.Management.System.Repository.Data
         public DbSet<Sales> Sales { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Order> Orders { get; set; }
-
+        public DbSet<CurrentDishe> CurrentDishes { get; set; }
+        public DbSet<WorkEmployee> WorkEmployees { get; set; }
+        public DbSet<Recommendation> Recommendations { get; set;}
 
     }
 }

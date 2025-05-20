@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>F:\backend\projectsDeployed\ResturantManagement</_PublishTargetUrl>
-    <History>True|2025-01-23T14:14:06.8639578Z;True|2025-01-23T16:08:42.6428829+02:00;True|2025-01-23T15:34:18.6829342+02:00;</History>
+    <History>True|2025-01-25T16:33:41.2562253Z;True|2025-01-25T18:08:39.1890857+02:00;True|2025-01-25T18:02:21.1988676+02:00;True|2025-01-25T17:12:55.7935345+02:00;True|2025-01-23T16:14:06.8639578+02:00;True|2025-01-23T16:08:42.6428829+02:00;True|2025-01-23T15:34:18.6829342+02:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

@@ -9,7 +9,7 @@ namespace Resturant.Management.System.Core.Entites
     public class Sales:BaseEntity
     {
         public int ResturantId {  get; set; }
-        public ICollection<Order> Orders { get; set; } = new List<Order>();
+        public ICollection<SalesOrders> Orders { get; set; } = new List<SalesOrders>();
         public decimal GetTotalCost()
         {
             decimal totalCost = 0;

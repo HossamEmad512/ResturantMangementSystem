@@ -35,6 +35,21 @@ namespace Resturant.Management.System.APIs.Controllers
 
         }
 
+        [HttpGet("GetById/{ResturantId}")]
+        [ProducesResponseType(typeof(IEnumerable<Resturants>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+
+        public async Task<ActionResult<IEnumerable<Resturants>>> GetResturantsByIdl(int ResturantId)
+        {
+            var Resturants = await _resturantRepo.GetById(ResturantId);
+            if (Resturants is null)
+            {
+                return NotFound(new ApiResponse(404, "No Resturan for this owner"));
+            }
+            return Ok(Resturants);
+
+        }
+
         [HttpPost("create")]
         [ProducesResponseType(typeof(Resturants), StatusCodes.Status200OK)]
 
@@ -66,17 +81,13 @@ namespace Resturant.Management.System.APIs.Controllers
         }
 
 
-        [HttpDelete("delete")]
+        [HttpDelete("delete/{id}")]
 
-        public async Task DeleteResturant(Resturants resturant)
+        public async Task DeleteResturant(int id)
         {
-            var Resturant = new Resturants()
-            {
-                ResturantName = resturant.ResturantName,
-                OwnerEmail = resturant.OwnerEmail,
-                Id = (int)resturant.Id,
-            };
-            _resturantRepo.Delete(Resturant);
+            var spec = new ResturantSpecification(id);
+            var Resturant = await _resturantRepo.GetByIdWithSpecAsync(spec);
+             _resturantRepo.Delete(Resturant);
 
             
         }

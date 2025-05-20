@@ -1,4 +1,5 @@
 ﻿using Resturant.Management.System.Core.Entites;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Resturant.Management.System.APIs.DTOs
 {
@@ -6,7 +7,9 @@ namespace Resturant.Management.System.APIs.DTOs
     {
 
         public int ResturantId { get; set; }
-        
+        public int TableNumber {  get; set; }
+        [AllowNull]
+        public string PhoneNumber { get; set; }
         public ICollection<OrderItemDto> OrderItems { get; set; } = new List<OrderItemDto>();
         public decimal GetTotalPrice()
         {
@@ -30,6 +33,7 @@ namespace Resturant.Management.System.APIs.DTOs
         }
 
         public decimal TotalCost { get; set; } = 0;
+        public DateTimeOffset DateOfCreation { get; set; } = DateTimeOffset.Now;
 
 
     }

@@ -30,10 +30,15 @@ namespace Resturant.Management.System.APIs
 
             builder.Services.AddScoped<IGenericRepository<Resturants>, GenericRepository<Resturants>>();
             builder.Services.AddScoped<IGenericRepository<Order>, GenericRepository<Order>>();
+            builder.Services.AddScoped<IGenericRepository<CurrentDishe>, GenericRepository<CurrentDishe>>();
+            builder.Services.AddScoped<IGenericRepository<Recommendation>, GenericRepository<Recommendation>>();
+
             builder.Services.AddScoped<IGenericRepository<Sales>, GenericRepository<Sales>>();
             builder.Services.AddScoped<IGenericRepository<Employee>, GenericRepository<Employee>>();
-
+            builder.Services.AddScoped<IGenericRepository<WorkEmployee>, GenericRepository<WorkEmployee>>();
             builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+            builder.Services.AddScoped<ICurrentDisheRepository, CurrentDisheRepository>();
+
             builder.Services.AddScoped<ISalesRepository, SalesRepository>();
 
             builder.Services.AddScoped<IGenericRepository<Menue>, GenericRepository<Menue>>();
@@ -122,6 +127,7 @@ namespace Resturant.Management.System.APIs
             app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseStaticFiles();
+            app.UseCors("MyPolicy");
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

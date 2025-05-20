@@ -45,15 +45,15 @@ namespace Resturant.Management.System.APIs.Controllers
 
         //create or update sales
 
-        [HttpPost("{ResturantId}")]
-        public async Task<ActionResult<SalesDto>> CreateOrUpdateSales(int ResturantId ,Order Order )
+        [HttpPost]
+        public async Task<ActionResult<SalesDto>> CreateOrUpdateSales(SalesOrders Order )
         {
-            var Sales = await _salesRepo.GetSaleByResturantId(ResturantId);
+            var Sales = await _salesRepo.GetSaleByResturantId(Order.ResturantId);
             if(Sales is null)
             {
                 Sales = new Sales()
                 {
-                    ResturantId = ResturantId,
+                    ResturantId = Order.ResturantId,
 
                 };
                 Sales.Orders.Add(Order);
